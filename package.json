@@ -1,5 +1,5 @@
 {
-  "name": "urlbuilder",
+  "name": "brembo",
   "version": "1.0.0",
   "description": "A simple utility for building URLs",
   "main": "index.js",
