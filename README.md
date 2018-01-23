@@ -1,4 +1,4 @@
-# urlbuilder
+# brembo
 A simple utility for building URLs in JavaScript
 
 Example: 
