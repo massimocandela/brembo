@@ -1,7 +1,20 @@
 # urlbuilder
 A simple utility for building URLs in JavaScript
 
+Example: 
+```
+url("https://massimocandela.com", {
+    path: ["example", "api", "v1"] // This can be a simple string too
+    params: {
+        a: 1,
+        b: 2
+    },
+    anchor: "here"
+});
+```
 
-urlbuilder("https:/massimocandela.com/", {
-                                path: cat.get("uid")
-                            });
+It will return the following string:
+
+__`https://massimocandela.com/example/api/v1?a=1&b=2#here`__
+
+
