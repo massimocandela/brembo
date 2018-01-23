@@ -1,4 +1,4 @@
-module.exports = function(base, options) {
+exports.build = function(base, options) {
     let urlOut = "";
     const params = options.params;
     let path = options.path;
@@ -49,4 +49,9 @@ module.exports = function(base, options) {
 
 
     return urlOut;
+};
+
+exports.parse = function(url){
+    //TODO
+    console.log("todo");
 };

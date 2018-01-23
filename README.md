@@ -3,7 +3,11 @@ A simple utility for building URLs in JavaScript
 
 Example: 
 ```
-url("https://massimocandela.com", {
+import url from 'urlbuilder';
+```
+
+```
+url.build("https://massimocandela.com", {
     path: ["example", "api", "v1"] // This can be a simple string too
     params: {
         a: 1,
