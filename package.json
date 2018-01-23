@@ -1,0 +1,24 @@
+{
+  "name": "urlbuilder",
+  "version": "1.0.0",
+  "description": "A simple utility for building URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxCam/urlbuilder.git"
+  },
+  "keywords": [
+    "generate url",
+    "url builder",
+    "create url"
+  ],
+  "author": "Massimo Candela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxCam/urlbuilder/issues"
+  },
+  "homepage": "https://github.com/MaxCam/urlbuilder#readme"
+}
