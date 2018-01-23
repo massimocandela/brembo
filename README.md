@@ -3,11 +3,11 @@ A simple utility for building URLs in JavaScript
 
 Example: 
 ```
-import brembo from 'brembo';
+import url from 'brembo';
 ```
 
 ```
-brembo.build("https://massimocandela.com", {
+url.build("https://massimocandela.com", {
     path: ["example", "api", "v1"] // This can be a simple string too
     params: {
         a: 1,
