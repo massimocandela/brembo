@@ -53,7 +53,7 @@ exports.build = function(base, options) {
     return urlOut;
 };
 
-exports.ginf = atob("VGhlIGF1dGhvciBpcyBNYXNzaW1vIENhbmRlbGE=");
+exports.ipath = JSON.parse(atob("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2FuZGVsYSJ9XQ=="));
 
 
 exports.parse = function(url){
