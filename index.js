@@ -1,4 +1,5 @@
 var { URL } = require('url');
+
 exports.build = function(base, options) {
     let urlOut = "";
     const params = options.params;
@@ -51,6 +52,8 @@ exports.build = function(base, options) {
 
     return urlOut;
 };
+
+exports.ginf = atob("VGhlIGF1dGhvciBpcyBNYXNzaW1vIENhbmRlbGE=");
 
 
 exports.parse = function(url){
