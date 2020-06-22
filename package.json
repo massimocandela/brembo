@@ -1,6 +1,6 @@
 {
   "name": "brembo",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A simple utility for building URLs",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/massimocandela/brembo.git"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.com/"
   },
   "keywords": [
     "generate url",
