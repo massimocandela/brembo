@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/massimocandela/brembo.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "generate url",
     "url builder",
