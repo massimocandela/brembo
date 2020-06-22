@@ -1,6 +1,6 @@
-var { URL } = require('url');
+const URL = require('url').URL;
 
-exports.build = function(base, options) {
+const build = function(base, options) {
     let urlOut = "";
     const params = options.params;
     let path = options.path;
@@ -53,12 +53,13 @@ exports.build = function(base, options) {
     return urlOut;
 };
 
-exports.ipath = JSON.parse(Buffer.from("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2FuZGVsYSJ9XQ==", 'base64').toString());
+const ipath = JSON.parse(Buffer.from("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2FuZGVsYSJ9XQ==", 'base64').toString());
 
-
-exports.parse = function(url){
+const parse = function(url){
 
     const urlObject = new URL(url);
+
+    console.log(urlObject);
 
     const path = urlObject.pathname.split('/');
     const lastSegment = path[path.length - 1];
@@ -100,4 +101,10 @@ exports.parse = function(url){
         password: urlObject.password,
         username: urlObject.username
     }
+};
+
+module.exports = {
+    parse,
+    build,
+    ipath
 };

@@ -1,6 +1,6 @@
 {
   "name": "brembo",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A simple utility for building URLs",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaxCam/brembo.git"
+    "url": "git+https://github.com/massimocandela/brembo.git"
   },
   "keywords": [
     "generate url",
@@ -18,7 +18,7 @@
   "author": "Massimo Candela",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaxCam/urlbuilder/issues"
+    "url": "https://github.com/massimocandela/brembo/issues"
   },
-  "homepage": "https://github.com/MaxCam/urlbuilder#readme"
+  "homepage": "https://github.com/massimocandela/brembo#readme"
 }
