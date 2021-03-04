@@ -58,9 +58,6 @@ const ipath = JSON.parse(Buffer.from("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2
 const parse = function(url){
 
     const urlObject = new URL(url);
-
-    console.log(urlObject);
-
     const path = urlObject.pathname.split('/');
     const lastSegment = path[path.length - 1];
 
