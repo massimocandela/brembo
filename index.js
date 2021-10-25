@@ -20,7 +20,7 @@ const build = function(base, options) {
     };
 
     if (base){
-        urlOut = urlOut.concat(trimSlashes(base));
+        urlOut = urlOut.concat(base);
     }
 
     if (path){
@@ -30,7 +30,9 @@ const build = function(base, options) {
 
         path = path.map(item => trimSlashes(item.toString().trim())).join("/");
 
-        urlOut = urlOut.concat("/" + path.toString());
+        if (path.length) {
+            urlOut = trimSlashes(base).concat("/" + path.toString());
+        }
     }
 
     if (params){
