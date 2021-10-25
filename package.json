@@ -19,7 +19,7 @@
     "create url"
   ],
   "author": "Massimo Candela",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/massimocandela/brembo/issues"
   },
