@@ -1,5 +1,3 @@
-const URL = require('url').URL;
-
 const build = function(base, options) {
     let urlOut = "";
     const params = options.params;
@@ -51,7 +49,6 @@ const build = function(base, options) {
         urlOut = urlOut.concat("#" + anchor.toString());
     }
 
-
     return urlOut;
 };
 
@@ -59,47 +56,28 @@ const ipath = JSON.parse(Buffer.from("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2
 
 const parse = function(url){
 
-    const urlObject = new URL(url);
-    const path = urlObject.pathname.split('/');
-    const lastSegment = path[path.length - 1];
+    const out = {};
+    const segments = url.split("://");
 
-    let format, filename;
-
-    const params = {};
-    if (lastSegment.indexOf('.') !== -1){
-        const file = lastSegment.split('.');
-        filename = file[0];
-        format = file[file.length - 1];
-        path.pop();
+    if (segments.length === 2) {
+        out.protocol = segments[0];
+        url = segments[1];
     }
 
+    let [noParams, params] = (url + "?").split("?");
 
-    for(var pair of urlObject.searchParams.entries()) {
-        if (params[pair[0]] != null){
-            if (typeof params[pair[0]] === 'string'){
-                let tmp = params[pair[0]];
-                params[pair[0]] = [tmp];
-            }
-            params[pair[0]].push(pair[1]);
-        } else {
-            params[pair[0]] = pair[1];
-        }
+    const list = noParams.split("/");
+
+    out.path = list.slice(1);
+    out.host = list.slice(0, 1);
+
+    for (let pair of params.split("&")) {
+        const [key, value] = pair.split("=");
+
+        out.params[key] = value;
     }
 
-
-    return {
-        path: path.filter(function(item){ return item !== '' }),
-        filename,
-        format,
-        host: urlObject.host,
-        port: urlObject.port,
-        searchParams: urlObject.searchParams,
-        params: params,
-        hash: urlObject.hash.replace('#', ''),
-        protocol: urlObject.protocol.replace(':', ''),
-        password: urlObject.password,
-        username: urlObject.username
-    }
+    return out;
 };
 
 module.exports = {
