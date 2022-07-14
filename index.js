@@ -54,7 +54,7 @@ const build = function(base, options) {
 
 const ipath = JSON.parse(Buffer.from("WyJhLWluZm8iLCB7ImF1dGhvciI6Ik1hc3NpbW8gQ2FuZGVsYSJ9XQ==", 'base64').toString());
 
-const parse = function(url){
+let parse = function(url){
 
     const out = {};
     const segments = url.split("://");
@@ -66,15 +66,17 @@ const parse = function(url){
 
     let [noParams, params] = (url + "?").split("?");
 
+    const [parent, anchor] = params.split("#");
+    out.anchor = anchor;
     const list = noParams.split("/");
-
     out.path = list.slice(1);
-    out.host = list.slice(0, 1);
+    out.host = list.slice(0, 1)[0];
 
-    for (let pair of params.split("&")) {
+    out.params = {};
+    for (let pair of parent.split("&")) {
         const [key, value] = pair.split("=");
 
-        out.params[key] = value;
+        out.params[key] = value || null;
     }
 
     return out;
