@@ -6,7 +6,7 @@ Example:
 import url from 'brembo';
 ```
 
-```
+```js
 url.build("https://massimocandela.com", {
     path: ["example", "api", "v1"] // This can be a simple string too
     params: {
@@ -28,19 +28,17 @@ url.parse("https://massimocandela.com/example/api/data.json?a=1&a=2&b=3#here");
 ```
 
 It will return the following object:
-```
+
+```js
 {
-    path: ["example", "api"],
-    filename: "data",
-    format: "json",
-    host: "massimocandela.com,
-    port: "",
-    searchParams: URLSearchParams,
-    params: { "a": [1, 2], "b": 3 },
-    hash: "here",
+    host: "massimocandela.com",
     protocol: "https",
-    password: "",
-    username: ""
+    path: ["example", "api", "v1"] // This can be a simple string too
+    params: {
+        a: 1,
+        b: 2
+    },
+    anchor: "here"
 }
 ```
 
