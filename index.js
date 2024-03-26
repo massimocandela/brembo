@@ -2,6 +2,7 @@ const build = function(base, options) {
     let urlOut = "";
     const params = options.params;
     let path = options.path;
+    const canonical = !!options.canonical;
     const anchor = options.anchor;
 
     const trimSlashes = function(str){
@@ -27,6 +28,15 @@ const build = function(base, options) {
         }
 
         path = path.map(item => trimSlashes(item.toString().trim())).join("/");
+
+        if (canonical) {
+            const last = path.split("/").pop();
+            const isFile = last.includes(".");
+
+            if (!isFile) {
+                path = path + "/";
+            }
+        }
 
         if (path.length) {
             urlOut = trimSlashes(base).concat("/" + path.toString());
