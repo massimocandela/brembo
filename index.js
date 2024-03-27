@@ -32,7 +32,7 @@ const build = function(base, options) {
 
     urlOut = path.join("/");
 
-    if (canonical && !path[path.length - 1].includes(".")) { // Not a file
+    if (canonical && path && path.length && path[path.length - 1] && !path[path.length - 1].includes(".")) { // Not a file
         urlOut = urlOut + "/";
     }
 
