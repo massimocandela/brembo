@@ -1,46 +1,43 @@
 const build = function(base, options) {
     let urlOut = "";
     const params = options.params;
-    let path = options.path;
+    let path = options.path || [];
     const canonical = !!options.canonical;
     const anchor = options.anchor;
 
     const trimSlashes = function(str){
 
-        if (str[str.length - 1] == "/") {
+        if (str == null || str === "") {
+            return null;
+        }
+
+        str = str.toString().trim();
+
+        if (str[str.length - 1] === "/") {
             str = str.slice(0, str.length - 1);
         }
 
-        if (str[0] == "/") {
+        if (str[0] === "/") {
             str = str.slice(1, str.length);
         }
 
         return str;
     };
 
-    if (base){
-        urlOut = urlOut.concat(base);
+    if (typeof(path) === "string") {
+        path = path.split("/");
     }
 
-    if (path){
-        if (typeof path == "string") {
-            path = [path];
-        }
+    path = [base || ""].concat(path).map(trimSlashes).filter(i => !!i);
 
-        path = path.map(item => trimSlashes(item.toString().trim())).join("/");
+    urlOut = path.join("/");
 
-        if (canonical) {
-            const last = path.split("/").pop();
-            const isFile = last.includes(".");
+    if (canonical && !path[path.length - 1].includes(".")) { // Not a file
+        urlOut = urlOut + "/";
+    }
 
-            if (!isFile) {
-                path = path + "/";
-            }
-        }
-
-        if (path.length) {
-            urlOut = trimSlashes(base).concat("/" + path.toString());
-        }
+    if (!base || base === "/") {
+        urlOut = "/" + urlOut;
     }
 
     if (params){
