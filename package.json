@@ -1,6 +1,6 @@
 {
   "name": "brembo",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A simple utility for building URLs",
   "main": "index.js",
   "scripts": {
