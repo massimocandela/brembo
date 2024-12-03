@@ -36,7 +36,7 @@ const build = function(base, options) {
         urlOut = urlOut + "/";
     }
 
-    if (!base || base.startsWith("/")) {
+    if (!base || base.charAt(0) === "/") {
         urlOut = "/" + urlOut;
     }
 
